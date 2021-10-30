@@ -21,6 +21,7 @@ README
 SIGNATURE
 t/App-Kramerius-V4/01-use.t
 t/App-Kramerius-V4/02-version.t
+t/App-Kramerius-V4/03-new.t
 V4.pm
 xt/App-Kramerius-V4/01-pod_coverage.t
 xt/App-Kramerius-V4/02-pod.t
