@@ -83,7 +83,8 @@ sub run {
 	$self->_message("Download $kramerius_full_url");
 	my $full_res = $self->{'lwp_user_agent'}->get($kramerius_full_url);
 	if (! $full_res->is_success) {
-		err "Cannot download '$kramerius_full_url'.";
+		err "Cannot download '$kramerius_full_url'.",
+			'Status line', $full_res->status_line;
 	}
 	my $output_file = $self->{'_opts'}->{'o'} ? $self->{'_opts'}->{'o'}
 		: $self->{'_doc_uuid'};
@@ -108,7 +109,8 @@ sub _get_suffix {
 	# Get metadata.
 	my $stream_res = $self->{'lwp_user_agent'}->get($kramerius_streams_url);
 	if (! $stream_res->is_success) {
-		err "Cannot download '$kramerius_streams_url'.";
+		err "Cannot download '$kramerius_streams_url'.",
+			'Status line', $stream_res->status_line;
 	}
 	my $struct_hr = decode_json($stream_res->content);
 	if (! defined $struct_hr) {
