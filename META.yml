@@ -18,6 +18,7 @@ meta-spec:
 name: App-Kramerius-V4
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
